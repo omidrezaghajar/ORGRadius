@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="AriaPardazKomesh" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=AriaPardazKomesh;Integrated Security=True" SettingsObjectName="RadSetting.Properties.Settings" SettingsPropertyName="AriaPardazKomeshConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.NasTypes" Member="NasTypes">
+    <Type Name="NasType">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VendorName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="VendorID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="NasType_Nase" Member="Nases" ThisKey="id" OtherKey="NasType" Type="Nase" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Nases" Member="Nases">
+    <Type Name="Nase">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NasType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ip" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ShareSecret" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="NasType_Nase" Member="NasType1" ThisKey="NasType" OtherKey="id" Type="NasType" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
